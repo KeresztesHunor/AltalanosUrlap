@@ -4,19 +4,17 @@ class UrlapView
 {
     constructor(szuloElem, leiro)
     {
-        szuloElem.append(
-            parosTag("form", {}, (() => {
-                const TARTALOM_LISTA = [];
-                for (const KULCS in leiro)
-                {
-                    const ERTEK = leiro[KULCS];
-                    TARTALOM_LISTA.push(parosTag("label", { for: KULCS }, [ERTEK.megj]));
-                    TARTALOM_LISTA.push(paratlanTag("input", { type: ERTEK.type, name: KULCS, placeholder: ERTEK.placeholder, value: ERTEK.value, title: ERTEK.valid }));
-                }
-                TARTALOM_LISTA.push(paratlanTag("input", { type: "submit", value: "OK" }));
-                return TARTALOM_LISTA;
-            })())
-        );
+        szuloElem.append(parosTag("form", {}, (() => {
+            const TARTALOM_LISTA = [];
+            for (const KULCS in leiro)
+            {
+                const ERTEK = leiro[KULCS];
+                TARTALOM_LISTA.push(parosTag("label", { for: KULCS }, [ERTEK.megj]));
+                TARTALOM_LISTA.push(paratlanTag("input", { type: ERTEK.type, name: KULCS, placeholder: ERTEK.placeholder, value: ERTEK.value, title: ERTEK.valid }));
+            }
+            TARTALOM_LISTA.push(paratlanTag("input", { type: "submit", value: "OK" }));
+            return TARTALOM_LISTA;
+        })()));
         szuloElem.children("form").children("input").toArray().forEach(mezo => {
             const MEZO_ELEM = $(mezo);
             const INPUT_MEZO_LEIRO = leiro[MEZO_ELEM.attr("name")];
