@@ -10,7 +10,7 @@ class UrlapView
             {
                 const ERTEK = leiro[KULCS];
                 TARTALOM_LISTA.push(parosTag("label", { for: KULCS }, [ERTEK.megj]));
-                TARTALOM_LISTA.push(paratlanTag("input", { type: ERTEK.type, name: KULCS, placeholder: ERTEK.placeholder, value: ERTEK.value, title: ERTEK.valid }));
+                TARTALOM_LISTA.push(paratlanTag("input", { type: ERTEK.type, name: KULCS, placeholder: ERTEK.placeholder, value: ERTEK.value, title: ERTEK.title }));
             }
             TARTALOM_LISTA.push(paratlanTag("input", { type: "submit", value: "OK" }));
             return TARTALOM_LISTA;
